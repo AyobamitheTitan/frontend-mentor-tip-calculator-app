@@ -28,18 +28,24 @@
       <img src="images/logo.svg" alt="splitter logo">
     </div>
 
-    <div class="bg-white flex flex-col sm:flex-row rounded-lg p-5 sm:py-2 sm:rounded-xl sm:items-center h-just-right sm:h-fit sm:w-fit sm:mx-auto">
+
+    <div
+      class="bg-white flex flex-col sm:flex-row rounded-lg p-5 sm:py-2 sm:rounded-xl sm:items-center h-just-right sm:h-fit sm:w-fit sm:mx-auto">
+      <form action="" onsubmit="calculateTip(event)">
       <div class="sm:px-3 sm:pr-6">
         <!-- Div with the bill amount input -->
         <div class="flex flex-col bg-none sm:mb-3 sm:pt-5">
-          <label for="Bill" class="text-neutral-dark-grayish-cyan text-xs font-bold pb-2">
-            Bill
-          </label>
+          <div class="flex justify-between">
+            <label for="Bill" class="text-neutral-dark-grayish-cyan text-xs font-bold pb-2">
+              Bill
+            </label>
+            <label for="error" id="bill-error" class="text-red-500 text-end text-xs font-bold pb-2"></label>
+          </div>
           <div class="relative flex items-center">
             <span class="absolute left-3">
               <img src="images/icon-dollar.svg" alt="dollar icon">
             </span>
-            <input type="number"
+            <input type="number" id="bill"
               class="bg-neutral-very-light-grayish-cyan pl-10 pr-4 py-2 text-end font-bold text-xl text-neutral-very-dark-cyan rounded focus:outline-none focus:ring-2 focus:ring-primary-strong-cyan focus:border-primary-strong-cyan w-full">
           </div>
 
@@ -47,46 +53,64 @@
 
         <!-- Select tip percentage -->
         <div class="py-6 sm:mb-6">
-          <div class="text-neutral-dark-grayish-cyan text-xs font-bold pb-3">Select Tip %</div>
+          <div class="flex justify-between">
+            <div class="text-neutral-dark-grayish-cyan text-xs font-bold pb-3">Select Tip %</div>
+            <div id="tip-error" class="text-red-500 text-xs text-end font-bold pb-3"></div>
+          </div>
+          <div id="tip-percentage" class="grid grid-cols-2 sm:grid-cols-3 gap-y-2">
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-2">
-            
-            <input type="button" class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1" value="5%"/>
+            <input type="button"
+              class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1"
+              value="5%" onclick="setActiveInput(this)" />
 
-            <input type="button" class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1" value="10%"/>
+            <input type="button"
+              class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1"
+              value="10%" onclick="setActiveInput(this)" />
 
+            <input type="button"
+              class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1"
+              value="15%" onclick="setActiveInput(this)" />
 
-            <input type="button" class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1" value="15%"/>
+            <input type="button"
+              class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1"
+              value="25%" onclick="setActiveInput(this)" />
 
-            <input type="button" class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1" value="25%"/>
+            <input type="button"
+              class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1"
+              value="50%" onclick="setActiveInput(this)" />
 
-            <input type="button" class="bg-neutral-very-dark-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan focus:bg-primary-strong-cyan focus:bg-primary-strong-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1" value="50%"/>
-
-
-            <div
+            <div onclick="setActiveInput(this)"
               class="bg-neutral-very-light-grayish-cyan rounded-sm font-semibold w-10/12 text-center py-1 text-neutral-dark-grayish-cyan ">
-              <input type="number" class="bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-strong-cyan focus:border-primary-strong-cyan rounded w-20 text-end" placeholder="Custom">  
+
+              <input type="number"
+                class="bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-strong-cyan focus:border-primary-strong-cyan rounded w-20 text-end"
+                placeholder="Custom" />
             </div>
-            
+
           </div>
         </div>
 
         <!-- Number of people -->
         <div>
-          <label for="People" class="text-neutral-dark-grayish-cyan text-xs font-bold pb-2">
-            Number of People
-          </label>
+          <div class="flex justify-between">
+            <label for="People" class="text-neutral-dark-grayish-cyan text-xs font-bold pb-2">
+              Number of People
+            </label>
+            <label for="Error" id="no-of-people-error" class="text-red-500 text-xs text-end font-bold pb-2">
+            </label>
+          </div>
           <div class="relative flex items-center pb-6">
             <span class="absolute left-3">
               <img src="images/icon-person.svg" alt="dollar icon">
             </span>
-            <input type="number"
+            <input id="number-of-people" type="number"
               class="bg-neutral-very-light-grayish-cyan focus:outline-none focus:ring-2 focus:ring-primary-strong-cyan focus:border-primary-strong-cyan pl-10 pr-4 py-2 text-end font-bold text-xl text-neutral-very-dark-cyan rounded w-full">
           </div>
         </div>
       </div>
 
-
+      <input type="submit" class="sr-only">
+      </form>
 
       <!-- Tip amount -->
       <div class="relative bg-neutral-very-dark-cyan rounded-lg px-3 pt-6 pb-3 sm:w-72 sm:px-5 sm:pt-6 sm:h-80">
@@ -122,8 +146,9 @@
           </div>
         </div>
         <div class="flex flex-col sm:absolute sm:bottom-0 sm:right-0 sm:left-0 w-full sm:p-6 sm:pb-7">
-          <button
-            class=" bg-primary-strong-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan uppercase text-neutral-very-dark-cyan font-semibold rounded p-1">Reset</button>
+          <input type="button" id="reset"
+            class="bg-primary-strong-cyan hover:text-neutral-very-dark-cyan hover:bg-neutral-light-grayish-cyan uppercase text-neutral-very-dark-cyan font-semibold rounded p-1"
+            value="Reset">
         </div>
 
       </div>
@@ -132,11 +157,12 @@
 
 
 
-  <div class="sm:absolute sm:bottom-0 sm:left-1/2 sm:transform sm:-translate-x-1/2 text-center text-xs p-4 bg-transparent w-full">
-  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-  Coded by <a href="#">Your Name Here</a>.
-</div>
-
+  <div
+    class="sm:absolute sm:bottom-0 sm:left-1/2 sm:transform sm:-translate-x-1/2 text-center text-xs p-4 bg-transparent w-full">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/AyobamitheTitan/">Oluwatimilehin Oyewo</a>.
+  </div>
+  <script src="scripts/submit.js" ></script>
 </body>
 
 </html>
