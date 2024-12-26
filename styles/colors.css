@@ -1,0 +1,58 @@
+:root {
+    --primary-strong-cyan: hsl(172, 67%, 45%);
+    --neutral-very-dark-cyan: hsl(183, 100%, 15%);
+    --neutral-dark-grayish-cyan: hsl(186, 14%, 43%);
+    --neutral-grayish-cyan: hsl(184, 14%, 56%);
+    --neutral-light-grayish-cyan: hsl(185, 41%, 84%);
+    --neutral-very-light-grayish-cyan: hsl(189, 41%, 97%);
+}
+
+/* Text Color Classes */
+.text-primary-strong-cyan {
+    color: var(--primary-strong-cyan);
+}
+
+.text-neutral-very-dark-cyan {
+    color: var(--neutral-very-dark-cyan);
+}
+
+.text-neutral-dark-grayish-cyan {
+    color: var(--neutral-dark-grayish-cyan);
+}
+
+.text-neutral-grayish-cyan {
+    color: var(--neutral-grayish-cyan);
+}
+
+.text-neutral-light-grayish-cyan {
+    color: var(--neutral-light-grayish-cyan);
+}
+
+.text-neutral-very-light-grayish-cyan {
+    color: var(--neutral-very-light-grayish-cyan);
+}
+
+/* Background Color Classes */
+.bg-primary-strong-cyan {
+    background-color: var(--primary-strong-cyan);
+}
+
+.bg-neutral-very-dark-cyan {
+    background-color: var(--neutral-very-dark-cyan);
+}
+
+.bg-neutral-dark-grayish-cyan {
+    background-color: var(--neutral-dark-grayish-cyan);
+}
+
+.bg-neutral-grayish-cyan {
+    background-color: var(--neutral-grayish-cyan);
+}
+
+.bg-neutral-light-grayish-cyan {
+    background-color: var(--neutral-light-grayish-cyan);
+}
+
+.bg-neutral-very-light-grayish-cyan {
+    background-color: var(--neutral-very-light-grayish-cyan);
+}
