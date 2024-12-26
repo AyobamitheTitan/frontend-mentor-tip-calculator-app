@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/colors.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/others.css">
+</head>
+
+<body class="font-space-mono bg-neutral-light-grayish-cyan">
+  <main class="flex flex-col sm:justify-center sm:items-center sm:h-screen">
+
+    <!-- Spliter logo -->
+    <div class="flex items-center justify-center p-10 sm:pt-0">
+      <img src="images/logo.svg" alt="splitter logo">
+    </div>
+
+    <div class="bg-white flex flex-col sm:flex-row rounded-lg p-5 sm:py-2 sm:rounded-xl sm:items-center h-just-right sm:h-fit sm:w-fit sm:mx-auto">
+      <div class="sm:px-3 sm:pr-6">
+        <!-- Div with the bill amount input -->
+        <div class="flex flex-col bg-none sm:mb-3 sm:pt-5">
+          <label for="Bill" class="text-neutral-dark-grayish-cyan text-xs font-bold pb-2">
+            Bill
+          </label>
+          <div class="relative flex items-center">
+            <span class="absolute left-3">
+              <img src="images/icon-dollar.svg" alt="dollar icon">
+            </span>
+            <input type="number"
+              class="bg-neutral-very-light-grayish-cyan pl-10 pr-4 py-2 text-end font-bold text-xl text-neutral-very-dark-cyan rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full">
+          </div>
+
+        </div>
+
+        <!-- Select tip percentage -->
+        <div class="py-6 sm:mb-6">
+          <div class="text-neutral-dark-grayish-cyan text-xs font-bold pb-3">Select Tip %</div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-2">
+            <div class="bg-neutral-very-dark-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1">5%</div>
+            <div class="bg-neutral-very-dark-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1">10%
+            </div>
+            <div class="bg-neutral-very-dark-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1">15%
+            </div>
+            <div class="bg-neutral-very-dark-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1">25%
+            </div>
+            <div class="bg-neutral-very-dark-cyan text-white font-semibold rounded-sm w-10/12 text-center py-1">50%
+            </div>
+            <div
+              class="bg-neutral-very-light-grayish-cyan rounded-sm font-semibold w-10/12 text-center py-1 text-neutral-dark-grayish-cyan pl-4">
+              Custom</div>
+          </div>
+        </div>
+
+        <!-- Number of people -->
+        <div>
+          <label for="People" class="text-neutral-dark-grayish-cyan text-xs font-bold pb-2">
+            Number of People
+          </label>
+          <div class="relative flex items-center pb-6">
+            <span class="absolute left-3">
+              <img src="images/icon-person.svg" alt="dollar icon">
+            </span>
+            <input type="number"
+              class="bg-neutral-very-light-grayish-cyan pl-10 pr-4 py-2 text-end font-bold text-xl text-neutral-very-dark-cyan rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Tip amount -->
+      <div class="relative bg-neutral-very-dark-cyan rounded-lg px-3 pt-6 pb-3 sm:w-72 sm:px-5 sm:pt-6 sm:h-80">
+        <div class="flex justify-between pb-6 sm:pb-9">
+          <div>
+            <div class="font-semibold text-xs text-neutral-very-light-grayish-cyan">Tip Amount</div>
+            <div class="text-xs text-neutral-dark-grayish-cyan font-bold">/ person</div>
+          </div>
+
+          <div>
+            <div class="flex text-primary-strong-cyan text-xl sm:text-3xl">
+              <div class="flex items-center">
+                &#36;
+              </div>
+              <div class="tip-amount font-bold">0.00</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between pb-6">
+          <div>
+            <div class="font-semibold text-xs text-neutral-very-light-grayish-cyan">Total</div>
+            <div class="text-xs text-neutral-dark-grayish-cyan font-bold">/ person</div>
+          </div>
+
+          <div>
+            <div class="flex text-primary-strong-cyan text-xl sm:text-3xl">
+              <div class="flex items-center">
+                &#36;
+              </div>
+              <div class="total-amount font-bold">0.00</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col sm:absolute sm:bottom-0 sm:right-0 sm:left-0 w-full sm:p-6 sm:pb-7">
+          <button
+            class=" bg-primary-strong-cyan uppercase text-neutral-very-dark-cyan font-semibold rounded p-1">Reset</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+  <div class="sm:absolute sm:bottom-0 sm:left-1/2 sm:transform sm:-translate-x-1/2 text-center text-xs p-4 bg-transparent w-full">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+  Coded by <a href="#">Your Name Here</a>.
+</div>
+
+</body>
+
+</html>
