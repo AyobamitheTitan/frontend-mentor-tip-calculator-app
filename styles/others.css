@@ -1,0 +1,10 @@
+@media (min-width: 640px) {
+    .sm\:h-80 {
+      height: 20.8rem;
+    }
+  }
+  
+
+.h-just-right{
+    height: 80vh;
+}
