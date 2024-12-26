@@ -7,6 +7,7 @@
     --neutral-very-light-grayish-cyan: hsl(189, 41%, 97%);
 }
 
+
 /* Text Color Classes */
 .text-primary-strong-cyan {
     color: var(--primary-strong-cyan);
@@ -55,4 +56,32 @@
 
 .bg-neutral-very-light-grayish-cyan {
     background-color: var(--neutral-very-light-grayish-cyan);
+}
+
+/* Pseudo classes */
+
+.hover\:text-neutral-very-dark-cyan:hover{
+    color: var(--neutral-very-dark-cyan);
+}
+
+.hover\:bg-neutral-light-grayish-cyan:hover{
+    background: var(--neutral-light-grayish-cyan);
+}
+
+.focus\:bg-primary-strong-cyan:focus{
+    background: var(--primary-strong-cyan);
+}
+
+.focus\:bg-primary-strong-cyan:focus{
+    color: var(--neutral-very-dark-cyan);
+}
+
+.focus\:border-primary-strong-cyan:focus{
+    border: 1px;
+    border-color: var(--primary-strong-cyan);
+}
+
+
+.focus\:ring-primary-strong-cyan:focus{
+    --tw-ring-color: var(--primary-strong-cyan);
 }
