@@ -60,6 +60,11 @@
 
 /* Pseudo classes */
 
+input[type="button"].active{
+    color: var(--neutral-very-dark-cyan);
+    background: var(--primary-strong-cyan);
+}
+
 .hover\:text-neutral-very-dark-cyan:hover{
     color: var(--neutral-very-dark-cyan);
 }
