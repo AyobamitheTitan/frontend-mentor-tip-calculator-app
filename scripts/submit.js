@@ -4,18 +4,18 @@ resetBtn.addEventListener("click", reset)
 
 function calculateTip(event) {
     event.preventDefault();
-    
+
     // Get the bill
     const bill = document.querySelector("#bill")
     const bill_error = document.querySelector("#bill-error")
-    
-    
+
+
     if (bill.value == "" || !Number.isInteger(Number(bill.value))) {
         bill_error.innerHTML = "Enter a valid amount"
     } else {
         bill_error.innerHTML = null
     }
-    
+
 
     const tip_percentage = document.querySelector("#tip-percentage")
     const retrieve_tip_percentage = retrieveTipPercentage(tip_percentage.children)
@@ -42,13 +42,15 @@ function calculateTip(event) {
         no_of_people_error.innerHTML = null
     }
 
-    const tip_amount = document.querySelector(".tip-amount")
+    if (retrieveTipPercentage && bill.value && numberOfPeople.value) {
+        const tip_amount = document.querySelector(".tip-amount")
 
-    tip_amount.innerHTML = Number((retrieve_tip_percentage / 100) * Number(bill.value)).toPrecision(3)
+        tip_amount.innerHTML = Number((retrieve_tip_percentage / 100) * Number(bill.value)).toPrecision(3)
 
-    const total_amount = document.querySelector(".total-amount")
+        const total_amount = document.querySelector(".total-amount")
 
-    total_amount.innerHTML = Number(tip_amount.innerHTML / Number(numberOfPeople.value)).toPrecision(3)
+        total_amount.innerHTML = Number(tip_amount.innerHTML / Number(numberOfPeople.value)).toPrecision(3)
+    }
 }
 
 
@@ -91,7 +93,7 @@ function removeActiveInputs() {
 }
 
 
-function reset(event){
+function reset(event) {
     // event.preventDefault()
     document.querySelector("form").reset();
 
@@ -110,5 +112,5 @@ function reset(event){
     tip_amount.innerHTML = "0.00"
     total_amount.innerHTML = "0.00"
     console.log("reset");
-    
+
 }
